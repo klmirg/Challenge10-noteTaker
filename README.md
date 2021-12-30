@@ -25,7 +25,8 @@ Uses an Express.js back end to save, retrieve, and delete note data from a JSON 
  ## Usage
 
  It is open to the public, so feel free to use if you would like. 
- Here is a tutorial video on how to use the Note Taker:
+ Here is the deployed heroku link:
+ https://powerful-plateau-35770.herokuapp.com/
 
 
  ## Languages
