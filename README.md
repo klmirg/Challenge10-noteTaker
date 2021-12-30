@@ -10,6 +10,8 @@ Uses an Express.js back end to save, retrieve, and delete note data from a JSON 
 
 * [Usage](#usage)
 
+* [Images](#images)
+
 * [Languages](#languages)
 
 * [Contributions](#contributions)
@@ -28,7 +30,11 @@ Uses an Express.js back end to save, retrieve, and delete note data from a JSON 
  Here is the deployed heroku link:
  https://powerful-plateau-35770.herokuapp.com/
 
-
+ ## Images 
+ 
+ ![](/public/assets/images/ScreenshotFrontPage.png)
+ ![](/public/assets/images/ScreenshotNotePage.png)
+ 
  ## Languages
  
   * JavaScript
