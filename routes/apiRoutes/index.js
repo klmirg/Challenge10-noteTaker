@@ -1,13 +1,14 @@
 const router = require("express").Router();
+// requiring the path
 const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 
-
+// Reading the notes file.
 router.get("/notes", (req, res)=>{
   res.sendFile(path.join(__dirname, "../../db/db.json"))
 })
-
+// Creating the notes file.
 router.post("/notes", (req, res)=>{
  const { title, text } = req.body;
 
@@ -19,7 +20,7 @@ router.post("/notes", (req, res)=>{
 
   console.log("newNote", newNote)
 
-
+  // Reading the file and creating 
   fs.readFile(path.join(__dirname, "../../db/db.json"), 'utf-8', (err, data)=>{
     const parsedNotes = JSON.parse(data)
     parsedNotes.push(newNote)
@@ -33,6 +34,11 @@ router.post("/notes", (req, res)=>{
 
   res.sendFile(path.join(__dirname, "../../db/db.json"))
 
+})
+
+// Deleting notes
+router.delete("/notes", (req, res) => {
+  
 })
 
 
