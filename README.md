@@ -12,8 +12,6 @@ Uses an Express.js back end to save, retrieve, and delete note data from a JSON 
 
 * [Languages](#languages)
 
-* [License](#license)
-
 * [Contributions](#contributions)
 
 * [Questions](#questions)
