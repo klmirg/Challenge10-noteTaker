@@ -4,14 +4,15 @@ const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 
-// Reading the notes file.
+// Reading the notes file. 
 router.get("/notes", (req, res)=>{
   res.sendFile(path.join(__dirname, "../../db/db.json"))
 })
-// Creating the notes file.
+
+// Saving the notes.
 router.post("/notes", (req, res)=>{
  const { title, text } = req.body;
-
+  // Creating the newNote variable with a title, text, and id.
   const newNote = {
     title: req.body.title,
     text: req.body.text ,
@@ -20,12 +21,13 @@ router.post("/notes", (req, res)=>{
 
   console.log("newNote", newNote)
 
-  // Reading the file and creating 
+  // Reading whats in the db.json file and giving it to us in utf-8 character set.
   fs.readFile(path.join(__dirname, "../../db/db.json"), 'utf-8', (err, data)=>{
     const parsedNotes = JSON.parse(data)
+    // Pushing our new notes to our parsed notes.
     parsedNotes.push(newNote)
     console.log("DATA FROM DB.json", parsedNotes)
-
+    // Writing the file with the new notes into the db.json file.
     fs.writeFile(path.join(__dirname, "../../db/db.json"), JSON.stringify(parsedNotes), (err)=>{
       if(err) throw err;
       console.log("Note Saved!")
@@ -37,8 +39,14 @@ router.post("/notes", (req, res)=>{
 })
 
 // Deleting notes
-router.delete("/notes", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
   
+  fs.readFile(path.join(__dirname, "../../db/db.json"), 'utf-8', (err, data)=>{
+    const parsedNotes = JSON.parse(data)
+    // Pushing our new notes to our parsed notes.
+    parsedNotes.push(newNote)
+    console.log("DATA FROM DB.json", parsedNotes)
+  })
 })
 
 
@@ -48,12 +56,6 @@ router.delete("/notes", (req, res) => {
 // youre going to handle your delete by id (think for loops)
 // then write back to your db file
 // send the udpated db to front end
-
-
-
-
-
-
 
 
 module.exports = router;
